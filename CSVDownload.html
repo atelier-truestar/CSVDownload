@@ -5,13 +5,13 @@
 		<title>CSV Download</title>
 		<script type="text/javascript" src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
 		<script type="text/javascript">
+			// Get Sheet Name from URL#Hash
+			var hash = location.hash;
+			var sheetname = decodeURI(hash.substr(1));
 			function exportCrossTab() {
 				// Get Viz
 				var vizs = window.parent.parent.tableau.VizManager.getVizs();
 				var viz = vizs[0];
-				// Get Sheet Name from URL#Hash
-				var hash = location.hash;
-				var sheetname = decodeURI(hash.substr(1));
 				// Show Export CrossTab Diablog
 				if (sheetname == '') {
 					viz.showExportCrossTabDialog();
